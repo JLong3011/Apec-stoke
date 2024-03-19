@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./script.js">
+  </head>
+  <body class="bg-[#020210]">
+    <header>
+      <div
+        class="flex gap-5 px-8 py-6 text-yellow-500 uppercase bg-gray-900 max-md:flex-wrap max-md:px-5"
+      >
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/825c6367c34ab9a4e1e9a19598661f3ac63817343d6e0e7560af92301dc020a4?apiKey=9e31904a5fb24b718fbae1608412f0fe&"
+          alt="Decorative image"
+          class="shrink-0 max-w-full aspect-[4.17] w-[100px]"
+        />
+        <p class="flex-auto my-auto max-md:max-w-full font-semibold">
+          Đăng ký giao dịch trái phiếu doanh nghiệp riêng lẻ
+        </p>
+      </div>
+    </header>
+    <main>
+      <div class="flex justify-center pb-20">
+        <div
+          id="stage"
+          class="flex gap-1 content-center px-5 mt-28 text-center text-white max-md:mt-10"
+        >
+          <div class="flex flex-0 rounded lg:w-[300px]">
+            <div class="grow justify-center py-1 bg-[#03854D] rounded-lrt">
+              Bước 1: Nhập số tài khoản
+            </div>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e3dc12f33bdc20cd0e764638ea3b4eda2ccb63593322344a693723e3936791eb?apiKey=9e31904a5fb24b718fbae1608412f0fe&"
+              alt=""
+              class="shrink-0 w-2 aspect-[0.25] fill-emerald-700"
+            />
+          </div>
+          <div class="flex flex-0 rounded lg:w-[300px]">
+            <div class="flex flex-auto justify-center bg-[#03854D] rounded-lrt">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/edc33453a036fa8b7718422a07decf34cb735b0dc228bfffe7c841167b71d52b?apiKey=9e31904a5fb24b718fbae1608412f0fe&"
+                alt=""
+                class="shrink-0 w-2 aspect-[0.25] fill-gray-950"
+              />
+              <div class="flex-auto my-auto">Bước 2: Thông tin đăng ký</div>
+            </div>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e3dc12f33bdc20cd0e764638ea3b4eda2ccb63593322344a693723e3936791eb?apiKey=9e31904a5fb24b718fbae1608412f0fe&"
+              alt=""
+              class="shrink-0 w-2 aspect-[0.25] fill-emerald-700"
+            />
+          </div>
+          <div class="flex flex-0 rounded lg:w-[300px]">
+            <div class="flex flex-auto justify-center bg-[#03854D] rounded-lrt">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/edc33453a036fa8b7718422a07decf34cb735b0dc228bfffe7c841167b71d52b?apiKey=9e31904a5fb24b718fbae1608412f0fe&"
+                alt=""
+                class="shrink-0 w-2 aspect-[0.25] fill-gray-950"
+              />
+              <div class="flex-auto my-auto">Bước 3: Ký hợp đồng</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center pb-20">
+        <div class="bg-[#1C192C] w-[320px] md:w-[800px]">
+          <div>
+            <h2
+              class="text-yellow-500 uppercase font-semibold text-center pt-6 pb-6"
+            >
+              Bước 3: ký hợp đồng mở tài khoản
+            </h2>
+          </div>
+          <div class="mx-2 md:mx-24">
+            <div>
+              <p class="text-white py-4">Hợp đồng mở tài khoản TPDNRL</p>
+            </div>
+            <div class="w-[300px] md:w-[640px]">
+              <object
+                data="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210101201653/PDF.pdf"
+                width="100%"
+                height="300px"
+              ></object>
+            </div>
+            <div class="flex items-center py-4 text-white">
+              <label>
+                <input type="checkbox" class="accent-yellow-500" checked /> Tôi
+                đồng ý các điều khoản điều kiện HĐ mở tài khoản TPDNRL
+              </label>
+            </div>
+            <form class="w-[300px] md:w-[640px]">
+              <input
+                type="number"
+                id="number-input"
+                aria-describedby="helper-text-explanation"
+                class="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-[#1C192C] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                placeholder="Quý khách vui lòng nhập mã pin"
+                required
+              />
+            </form>
+            <button
+              id="openModal"
+              class="flex mx-auto justify-center w-[60%] py-2.5 mb-10 mt-10 font-medium text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
+            >
+              Ký hợp đồng
+            </button>
+
+            <div
+              id="modal"
+              class="flex flex-col max-w-screen-sm text-sm text-white fixed bg-opacity-50 hidden justify-center items-center"
+            >
+              <header
+                class="modal-content justify-center p-2.5 font-semibold text-center bg-zinc-900 max-md:max-w-full"
+              >
+                Thông báo
+              </header>
+              <section
+                class="flex flex-col items-center px-8 py-6 w-full font-bold bg-gray-900 rounded-none max-md:px-5 max-md:max-w-full"
+              >
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/37da6a14a42cbd2f26d21f1bce734d4e2c307ec94bb1b3d3cad6073aae2ed1db?apiKey=9e31904a5fb24b718fbae1608412f0fe&"
+                  alt="Decorative icon"
+                  class="w-20 aspect-square"
+                />
+                <h2
+                  class="mt-6 text-2xl text-yellow-500 uppercase max-md:max-w-full"
+                >
+                  Đăng ký thành công, chờ kích hoạt
+                </h2>
+                <p class="mt-6">
+                  Quý khách đã đăng ký tài khoản giao dịch thành công!
+                </p>
+                <p
+                  class="self-stretch mt-4 leading-6 text-center max-md:max-w-full"
+                >
+                  Tài khoản sẽ đuọc kích hoạt sau khi đăng ký với Tổng Công ty
+                  Lưu ký và Bù trừ Chứng khoán Việt Nam (VSDC) và có thể giao
+                  dịch sau 1 ngày làm việc.
+                </p>
+                <button
+                  id="closeModal"
+                  class="justify-center px-7 py-1.5 mt-12 text-xs text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
+                >
+                  Chấp nhận
+                </button>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="https://cdn.tailwindcss.com"></script>
+</html>
