@@ -1,13 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const openModalBtn = document.getElementById("openModal");
-  const closeModalBtn = document.getElementById("closeModal");
-  const modal = document.getElementById("modal");
-
-  openModalBtn.addEventListener("click", () => {
-    modal.classList.remove("hidden");
-  });
-
-  closeModalBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-});
+var checker = document.getElementById('checkMe');
+var sendbtn = document.getElementById('hasChecked');
+hasChecked.disabled = true;
+checker.onchange = function() {
+  sendbtn.disabled = false;
+};

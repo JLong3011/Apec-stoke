@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./script.js">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body class="bg-[#020210]">
     <header>
@@ -89,7 +92,7 @@
             </div>
             <div class="flex items-center py-4 text-white">
               <label>
-                <input type="checkbox" class="accent-yellow-500" checked /> Tôi
+                <input id="checkMe" type="checkbox" class="accent-yellow-500"/> Tôi
                 đồng ý các điều khoản điều kiện HĐ mở tài khoản TPDNRL
               </label>
             </div>
@@ -103,57 +106,80 @@
                 required
               />
             </form>
+
+            <!-- Modal toggle -->
             <button
-              id="openModal"
-              class="flex mx-auto justify-center w-[60%] py-2.5 mb-10 mt-10 font-medium text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
+              data-modal-target="default-modal"
+              data-modal-toggle="default-modal"
+              id="hasChecked"
+              class="block flex mx-auto justify-center w-[60%] py-2.5 mb-10 mt-10 font-medium text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
+              type="button"
             >
-              Ký hợp đồng
+              Kí hợp đồng
             </button>
 
+            <!-- Main modal -->
             <div
-              id="modal"
-              class="flex flex-col max-w-screen-sm text-sm text-white fixed bg-opacity-50 hidden justify-center items-center"
+              id="default-modal"
+              tabindex="-1"
+              aria-hidden="true"
+              class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
             >
-              <header
-                class="modal-content justify-center p-2.5 font-semibold text-center bg-zinc-900 max-md:max-w-full"
-              >
-                Thông báo
-              </header>
-              <section
-                class="flex flex-col items-center px-8 py-6 w-full font-bold bg-gray-900 rounded-none max-md:px-5 max-md:max-w-full"
-              >
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/37da6a14a42cbd2f26d21f1bce734d4e2c307ec94bb1b3d3cad6073aae2ed1db?apiKey=9e31904a5fb24b718fbae1608412f0fe&"
-                  alt="Decorative icon"
-                  class="w-20 aspect-square"
-                />
-                <h2
-                  class="mt-6 text-2xl text-yellow-500 uppercase max-md:max-w-full"
-                >
-                  Đăng ký thành công, chờ kích hoạt
-                </h2>
-                <p class="mt-6">
-                  Quý khách đã đăng ký tài khoản giao dịch thành công!
-                </p>
-                <p
-                  class="self-stretch mt-4 leading-6 text-center max-md:max-w-full"
-                >
-                  Tài khoản sẽ đuọc kích hoạt sau khi đăng ký với Tổng Công ty
-                  Lưu ký và Bù trừ Chứng khoán Việt Nam (VSDC) và có thể giao
-                  dịch sau 1 ngày làm việc.
-                </p>
-                <button
-                  id="closeModal"
-                  class="justify-center px-7 py-1.5 mt-12 text-xs text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
-                >
-                  Chấp nhận
-                </button>
-              </section>
+              <div class="relative p-4 w-full max-w-2xl max-h-full">
+                <!-- Modal content -->
+                <div class="relative rounded-lg shadow dark:bg-[#1C192C]">
+                  <!-- Modal header -->
+                  <div class="flex justify-center p-2 md:p-3 bg-[#110E1E]">
+                    <h3
+                      class="modal-content text-white justify-center py-1 font-semibold text-center max-md:max-w-full"
+                    >
+                      Thông Báo
+                    </h3>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="px-4 py-5 md:p-5 space-y-4">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/37da6a14a42cbd2f26d21f1bce734d4e2c307ec94bb1b3d3cad6073aae2ed1db?apiKey=9e31904a5fb24b718fbae1608412f0fe&"
+                      alt="Decorative icon"
+                      class="w-20 aspect-square mx-auto flex"
+                    />
+                    <h2
+                      class="mt-6 text-2xl text-yellow-500 uppercase font-semibold max-md:max-w-full text-center self-stretch"
+                    >
+                      Đăng ký thành công, chờ kích hoạt
+                    </h2>
+                    <p class="mt-6 text-white text-center self-stretch">
+                      Quý khách đã đăng ký tài khoản giao dịch thành công!
+                    </p>
+                    <p
+                      class="self-stretch mt-4 leading-6 text-center max-md:max-w-full text-white"
+                    >
+                      Tài khoản sẽ đuọc kích hoạt sau khi đăng ký với Tổng Công ty
+                      Lưu ký và Bù trừ Chứng khoán Việt Nam (VSDC) và có thể giao
+                      dịch sau 1 ngày làm việc.
+                    </p>
+                  </div>
+                  <!-- Modal footer -->
+                  <div
+                    class="flex items-center justify-center p-4 md:p-5"
+                  >
+                    <button
+                      data-modal-hide="default-modal"
+                      type="button"
+                      class="justify-center px-7 py-1.5 mt-12 text-[16px] font-semibold text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
+                    >
+                      Chấp nhận
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          </div> 
         </div>
       </div>
     </main>
   </body>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <script src="./script.js"></script>
 </html>
