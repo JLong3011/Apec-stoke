@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./filled.html">
+    <link rel="stylesheet" href="./filled.html" />
   </head>
   <body class="bg-[#020210]">
     <header>
@@ -21,15 +21,13 @@
       </div>
     </header>
     <main>
-      <div class="flex justify-center ">
+      <div class="flex justify-center">
         <div
           id="stage"
           class="flex gap-1 content-center px-5 mt-28 text-center text-white max-md:mt-10"
         >
           <div class="flex flex-0 rounded lg:w-[300px]">
-            <div
-              class="grow justify-center py-1 bg-[#03854D] rounded-lrt"
-            >
+            <div class="grow justify-center py-1 bg-[#03854D] rounded-lrt">
               Bước 1: Nhập số tài khoản
             </div>
             <img
@@ -69,12 +67,12 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-center" >
+      <div class="flex justify-center">
         <div
           id="log-in"
           class="flex flex-col justify-center w-[340px] px-5 py-5 mt-12 bg-gray-900 rounded lg:w-[510px]"
         >
-          <h2 class="self-center font-bold text-yellow-500 uppercase">
+          <h2 id="accountNumber" class="self-center font-bold text-yellow-500 uppercase">
             Bước 1: Nhập số tài khoản
           </h2>
           <p class="mt-4 text-white">
@@ -86,17 +84,20 @@
             >
             <input
               id="accountNumber"
-              class="grow justify-center px-3 py-2.5 whitespace-nowrap rounded border border-gray-600 border-solid w-fit"
+              class="grow justify-center px-3 py-2.5 whitespace-nowrap rounded border border-gray-600 border-solid w-fit text-black"
             />
           </form>
           <button
+            type="submit"
+            id="login__signInButton"
             class="justify-center items-center px-16 py-2.5 mt-12 font-medium text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
           >
-            <a href="./filled.html">Xác nhận</a>
+            Xác nhận
           </button>
         </div>
       </div>
     </main>
   </body>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./index.js"></script>
 </html>
