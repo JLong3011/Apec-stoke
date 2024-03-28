@@ -1,4 +1,4 @@
-let apiUser = "http://localhost:3000/user";
+let apiUser = "https://jsonplaceholder.typicode.com/posts/";
 
 //login
 const accountNumber = document.getElementById("accountNumber");
@@ -19,7 +19,7 @@ bntLogin.addEventListener("click", function (e) {
   } else {
     getUser().then((data) => {
       const user = data.find(
-        (user) => user.accountNumber == accountNumber.value
+        (user) => user.id == accountNumber.value
       );
       if (user) {
         // login success
@@ -28,7 +28,7 @@ bntLogin.addEventListener("click", function (e) {
       } else {
         // login failed
         alert("Login failed. Please try again.");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
       }
     });
   }
