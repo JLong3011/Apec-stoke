@@ -1,35 +1,16 @@
-let apiUser = "https://jsonplaceholder.typicode.com/posts/";
-
-//login
-const accountNumber = document.getElementById("accountNumber");
-const bntLogin = document.getElementById("signInButton");
-
-// get user
-const getUser = async () => {
-  const response = await fetch(apiUser);
-  const data = await response.json();
-  return data;
-};
-
-// login
-bntLogin.addEventListener("click", function (e) {
-  e.preventDefault();
-  if (accountNumber.value == "") {
-    alert("Vui long nhap so tai khoan");
-  } else {
-    getUser().then((data) => {
-      const user = data.find(
-        (user) => user.id == accountNumber.value
-      );
-      if (user) {
-        // login success
-        alert("Login success");
-        window.location.href = "filled.html";
+document.getElementById('login__signInButton').addEventListener('click', function() {
+  var inputValue = document.getElementById("accountInput").value;
+  console.log("Giá trị từ input là: " + inputValue);
+  
+  fetch('https://jsonplaceholder.typicode.com/todos')
+    .then(response => response.json())
+    .then(json => {
+      const todo = json.find(todo => todo.id.toString() === inputValue); // Find the todo with matching id
+      if (todo) {
+        console.log('Số tài khoản hợp lệ! Chuyển sang bước tiếp theo...');
+        window.location.href = 'filled.html?accountNumber=' + encodeURIComponent(inputValue);
       } else {
-        // login failed
-        alert("Login failed. Please try again.");
-        window.location.href = "index.html";
+        console.log('Số tài khoản không hợp lệ! Vui lòng kiểm tra lại.');
       }
-    });
-  }
+    })
 });
