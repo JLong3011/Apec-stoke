@@ -161,8 +161,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const urlParams = new URLSearchParams(window.location.search);
-      const accountNumber = urlParams.get("accountNumber");
+      var accountNumber = localStorage.getItem("accountNumber");
       fetch("http://10.0.170.132:8088/v1/front-service/investor/send-info", {
         method: "POST",
         headers: {

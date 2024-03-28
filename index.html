@@ -125,8 +125,8 @@
           })
           .then((data) => {
             console.log(data);
-            window.location.href =
-              "filled.html?accountNumber=" + encodeURIComponent(inputValue);
+            localStorage.setItem("accountNumber", inputValue);
+            window.location.href = "filled.html";
           })
           .catch((error) => {
             console.error("Có lỗi xảy ra:", error);
