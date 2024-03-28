@@ -156,25 +156,113 @@
           </button>
         </div>
       </div>
+        <div class="flex justify-center mt-10 mb-20">
+            <div class=" w-[320px] lg:w-[800px] bg-[#1C192C] ">
+                <div>
+                    <h2 class="text-yellow-500 uppercase font-semibold text-center pt-6 pb-6">Bước 2: Thông tin đăng kí giao dịch trái phiếu doanh nghiệp riêng lẻ</h2>
+                </div>
+                <div class="flex justify-center">
+                    <table
+                    class="text-sm text-left text-white w-[95%] border-2 border-[#404040]"
+                    >
+                    <tbody>
+                        <tr class="bg-[#1C192C]">
+                        <th
+                            scope="row"
+                            class="px-2 md:px-6 py-4 text-white border-r-2 border-[#404040] w-[50%]"
+                        >
+                            Số tài khoản
+                        </th>
+                        <td id="accountNumber" class="px-2 md:px-6 py-4"></td>
+                        </td>
+                        </tr>
+                        <tr class="bg-[#0F0E1E]">
+                        <th
+                            scope="row"
+                            class="px-2 md:px-6 py-4 text-white border-r-2 border-[#404040] w-[50%]"
+                        >
+                            Họ và tên
+                        </th>
+                        <td id="fullName" class="px-2 md:px-6 py-4">Nguyễn Văn A</td>
+                        </tr>
+                        <tr class="bg-[#1C192C]">
+                        <th
+                            scope="row"
+                            class="px-2 md:px-6 py-4 text-white border-r-2 border-[#404040] w-[50%]"
+                        >
+                            Số ĐKSH
+                        </th>
+                        <td id="identity" class="px-2 md:px-6 py-4">123123123</td>
+                        </tr>
+                        <tr class="bg-[#0F0E1E]">
+                        <th
+                            scope="row"
+                            class="px-2 md:px-6 py-4 text-white border-r-2 border-[#404040] w-[50%]"
+                        >
+                            Ngày cấp
+                        </th>
+                        <td id="identityDate" class="px-2 md:px-6 py-4">24/6/2016</td>
+                        </tr>
+                        <tr class="bg-[#1C192C]">
+                        <th
+                            scope="row"
+                            class="px-2 md:px-6 py-4 text-white border-r-2 border-[#404040] w-[50%]"
+                        >
+                            Nơi cấp
+                        </th>
+                        <td id="identityPlace" class="px-2 md:px-6 py-4">Hà Nội</td>
+                        </td>
+                        </tr>
+                        <tr class="bg-[#0F0E1E]">
+                            <th
+                            scope="row"
+                            class="px-2 md:px-6 py-4 text-white border-r-2 border-[#404040] w-[50%]"
+                            >
+                            Số điện thoại
+                            </th>
+                            <td id="phoneNumber" class="px-2 md:px-6 py-4">0123432482</td>
+                            </td>
+                        </tr>
+                        <tr class="bg-[#1C192C]">
+                            <th
+                            scope="row"
+                            class="px-2 md:px-6 py-4 text-white border-r-2 border-[#404040] w-[50%]"
+                            >
+                            Loại hình khách hàng
+                            </th>
+                            <td class="px-2 md:px-6 py-4">Doanh nghiệp</td>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <button
+                    id="successRegister"
+                    class="flex mx-auto w-[80%] justify-center py-2.5 mb-10 mt-10 font-medium text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
+                >
+                Xác nhận
+                </button>
+            </div>
+        </div>
+    
     </main>
   </body>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search); //truy van tung phan url
+      const accountNumber = urlParams.get("accountNumber");
+      fetch(
+        "https://jsonplaceholder.typicode.com/todos/" +
+          encodeURIComponent(accountNumber)
+      )
+        .then((response) => response.json())
+        .then((json) => {
+          document.getElementById("accountNumber").innerText = JSON.stringify(
+            json.id
+          );
+          document.getElementById("fullName").innerText = json.title;
+        })
+    });
+  </script>
 </html>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const urlParams = new URLSearchParams(window.location.search); //truy van tung phan url
-    const accountNumber = urlParams.get("accountNumber");
-    fetch(
-      "https://jsonplaceholder.typicode.com/todos/" +
-        encodeURIComponent(accountNumber)
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        document.getElementById("accountNumber").innerText = JSON.stringify(
-          json.id
-        );
-        document.getElementById("fullName").innerText = json.title;
-      })
-  });
-</script>
