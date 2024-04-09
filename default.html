@@ -98,7 +98,7 @@
             </div>
             <form class="w-[300px] md:w-[640px]">
               <input
-                type="number"
+                type="text"
                 id="number-input"
                 aria-describedby="helper-text-explanation"
                 class="border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-[#1C192C] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
@@ -182,9 +182,22 @@
   <script>
     var checker = document.getElementById("checkMe");
     var sendbtn = document.getElementById("hasChecked");
-    hasChecked.disabled = true;
-    checker.onchange = function () {
-      sendbtn.disabled = false;
-    };
+    var pin = 12345;
+
+    function checkConditions() {
+      var numberInputValue = document.getElementById("number-input").value;
+      if (numberInputValue == pin && checker.checked) {
+        sendbtn.disabled = false;
+        sendbtn.style.background = ""; // Xóa màu nền nếu điều kiện đúng
+      } else {
+        sendbtn.disabled = true;
+        sendbtn.style.background = "gray"; // Đặt màu nền thành xám nếu điều kiện sai
+      }
+    }
+
+    checker.addEventListener("change", checkConditions);
+    document
+      .getElementById("number-input")
+      .addEventListener("input", checkConditions);
   </script>
 </html>
