@@ -92,8 +92,8 @@
             </div>
             <div class="flex items-center py-4 text-white">
               <label>
-                <input id="checkMe" type="checkbox" class="accent-yellow-500"/> Tôi
-                đồng ý các điều khoản điều kiện HĐ mở tài khoản TPDNRL
+                <input id="checkMe" type="checkbox" class="accent-yellow-500" />
+                Tôi đồng ý các điều khoản điều kiện HĐ mở tài khoản TPDNRL
               </label>
             </div>
             <form class="w-[300px] md:w-[640px]">
@@ -154,15 +154,13 @@
                     <p
                       class="self-stretch mt-4 leading-6 text-center max-md:max-w-full text-white"
                     >
-                      Tài khoản sẽ đuọc kích hoạt sau khi đăng ký với Tổng Công ty
-                      Lưu ký và Bù trừ Chứng khoán Việt Nam (VSDC) và có thể giao
-                      dịch sau 1 ngày làm việc.
+                      Tài khoản sẽ đuọc kích hoạt sau khi đăng ký với Tổng Công
+                      ty Lưu ký và Bù trừ Chứng khoán Việt Nam (VSDC) và có thể
+                      giao dịch sau 1 ngày làm việc.
                     </p>
                   </div>
                   <!-- Modal footer -->
-                  <div
-                    class="flex items-center justify-center p-4 md:p-5"
-                  >
+                  <div class="flex items-center justify-center p-4 md:p-5">
                     <button
                       data-modal-hide="default-modal"
                       type="button"
@@ -174,12 +172,19 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
         </div>
       </div>
     </main>
   </body>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-  <script src="./script.js"></script>
+  <script>
+    var checker = document.getElementById("checkMe");
+    var sendbtn = document.getElementById("hasChecked");
+    hasChecked.disabled = true;
+    checker.onchange = function () {
+      sendbtn.disabled = false;
+    };
+  </script>
 </html>
