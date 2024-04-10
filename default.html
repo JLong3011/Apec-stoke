@@ -182,7 +182,17 @@
   <script>
     var checker = document.getElementById("checkMe");
     var sendbtn = document.getElementById("hasChecked");
-    var pin = 12345;
+    var pin = 456454;
+    var apiUrl = `http://10.0.170.132:8088/v1/front-service/investor/check-otp?pinCode`;
+    fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            accountNumber: inputValue,
+          }),
+        })
 
     function checkConditions() {
       var numberInputValue = document.getElementById("number-input").value;
