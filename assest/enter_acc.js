@@ -13,18 +13,19 @@ document.getElementById("signInButton").addEventListener("click", function () {
   fetch(apiUrl, requestOptions)
       .then((response) => response.text())
       .then((res) => {
-        console.log(res)
-        if(res.status = 500){
-          swal({
-            title: "Sai tài khoản, vui lòng nhập lại",
-            type: "error",
-            confirmButtonClass: "btn-danger",
-          });
-          localStorage.clear();
-          return;
-        }else{
-          localStorage.setItem("accountNumber", inputValue);
-        }
+        // console.log(res)
+        // if(res.status = 500){
+        //   swal({
+        //     title: "Sai tài khoản, vui lòng nhập lại",
+        //     type: "error",
+        //     confirmButtonClass: "btn-danger",
+        //   });
+        //   localStorage.clear();
+        //   return;
+        // }else{
+        //   localStorage.setItem("accountNumber", inputValue);
+        // }
+        localStorage.setItem("accountNumber", inputValue);
       }).then(() =>
         window.location.href = "filled.html")
       .catch((error) => console.error(error));
