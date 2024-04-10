@@ -162,6 +162,7 @@
                   <!-- Modal footer -->
                   <div class="flex items-center justify-center p-4 md:p-5">
                     <button
+                      onclick="checkOtp()"
                       data-modal-hide="default-modal"
                       type="button"
                       class="justify-center px-7 py-1.5 mt-12 text-[16px] font-semibold text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
@@ -180,34 +181,31 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
   <script>
-    var checker = document.getElementById("checkMe");
-    var sendbtn = document.getElementById("hasChecked");
-    var pin = 456454;
-    var apiUrl = `http://10.0.170.132:8088/v1/front-service/investor/check-otp?pinCode`;
-    fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            accountNumber: inputValue,
-          }),
+    function checkOtp() {
+      var inputOtp = document.getElementById("number-input").value;
+      console.log("Giá trị từ input là: " + inputOtp);
+
+      const url =
+        "http://10.0.170.132:8088/v1/front-service/investor/check-otp";
+
+      fetch(url)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Có lỗi khi gửi yêu cầu: " + response.status);
+          }
+          return response.json();
         })
-
-    function checkConditions() {
-      var numberInputValue = document.getElementById("number-input").value;
-      if (numberInputValue == pin && checker.checked) {
-        sendbtn.disabled = false;
-        sendbtn.style.background = ""; // Xóa màu nền nếu điều kiện đúng
-      } else {
-        sendbtn.disabled = true;
-        sendbtn.style.background = "gray"; // Đặt màu nền thành xám nếu điều kiện sai
-      }
+        .then((data) => {
+          console.log(data); 
+          if (data.valid) {
+            sendbtn.style.background = "";
+          } else {
+            sendbtn.style.background = "red";
+          }
+        })
+        .catch((error) => {
+          console.error("Có lỗi xảy ra:", error);
+        });
     }
-
-    checker.addEventListener("change", checkConditions);
-    document
-      .getElementById("number-input")
-      .addEventListener("input", checkConditions);
   </script>
 </html>
