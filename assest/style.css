@@ -1,0 +1,41 @@
+
+  #checkMe[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* Style the custom checkbox when checked */
+  #checkMe[type="checkbox"]:checked::before {
+    content: '\2714'; /* Unicode character for checkmark */
+    color: #ffc107;
+    background-color: #ffc107;
+    /* Position the tick mark */
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    font-size: 16px;
+  }
+
+  /* Style label text */
+  label {
+    /* Align label text properly */
+    vertical-align: middle;
+    /* Add padding to give space around text */
+    padding-left: 10px;
+  }
+  .modal{
+    opacity: 1;
+    background: #1C192C;
+  }
+  [type=checkbox]{
+    color:#ffc107; 
+  }
+  #hasChecked[disabled], #signInButton[disabled] {
+    background:#818181;
+  }

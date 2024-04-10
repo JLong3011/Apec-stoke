@@ -7,10 +7,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
       rel="stylesheet"
     />
+    <link href="/assest/style.css" rel="stylesheet" />
   </head>
   <body class="bg-[#020210]">
     <header>
-      <div
+      <a
+        href="/"
         class="flex gap-5 px-8 py-6 text-yellow-500 uppercase bg-gray-900 max-md:flex-wrap max-md:px-5"
       >
         <img
@@ -21,7 +23,7 @@
         <p class="flex-auto my-auto max-md:max-w-full font-semibold">
           Đăng ký giao dịch trái phiếu doanh nghiệp riêng lẻ
         </p>
-      </div>
+      </a>
     </header>
     <main>
       <div class="flex justify-center md:pb-20 pb-10">
@@ -114,6 +116,7 @@
               id="hasChecked"
               class="block flex mx-auto justify-center w-[60%] py-2.5 mb-10 mt-10 font-medium text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
               type="button"
+              disabled
             >
               Kí hợp đồng
             </button>
@@ -127,7 +130,7 @@
             >
               <div class="relative p-4 w-full max-w-2xl max-h-full">
                 <!-- Modal content -->
-                <div class="relative rounded-lg shadow dark:bg-[#1C192C]">
+                <div class="relative rounded-lg shadow dark:bg-[#1C192C] modal">
                   <!-- Modal header -->
                   <div class="flex justify-center p-2 md:p-3 bg-[#110E1E]">
                     <h3
@@ -162,7 +165,7 @@
                   <!-- Modal footer -->
                   <div class="flex items-center justify-center p-4 md:p-5">
                     <button
-                      onclick="checkOtp()"
+                      onclick="goHome()"
                       data-modal-hide="default-modal"
                       type="button"
                       class="justify-center px-7 py-1.5 mt-12 text-[16px] font-semibold text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
@@ -180,32 +183,5 @@
   </body>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-  <script>
-    function checkOtp() {
-      var inputOtp = document.getElementById("number-input").value;
-      console.log("Giá trị từ input là: " + inputOtp);
-
-      const url =
-        "http://10.0.170.132:8088/v1/front-service/investor/check-otp";
-
-      fetch(url)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Có lỗi khi gửi yêu cầu: " + response.status);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data); 
-          if (data.valid) {
-            sendbtn.style.background = "";
-          } else {
-            sendbtn.style.background = "red";
-          }
-        })
-        .catch((error) => {
-          console.error("Có lỗi xảy ra:", error);
-        });
-    }
-  </script>
+  <script src="./assest/sign.js"></script>
 </html>

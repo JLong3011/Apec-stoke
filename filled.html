@@ -7,7 +7,7 @@
   </head>
   <body class="bg-[#020210]">
     <header>
-      <div
+      <a href="/"
         class="flex gap-5 px-8 py-6 text-yellow-500 uppercase bg-gray-900 max-md:flex-wrap max-md:px-5"
       >
         <img
@@ -18,7 +18,7 @@
         <p class="flex-auto my-auto max-md:max-w-full font-semibold">
           Đăng ký giao dịch trái phiếu doanh nghiệp riêng lẻ
         </p>
-      </div>
+      </a>
     </header>
     <main>
       <div class="flex justify-center">
@@ -159,37 +159,5 @@
     </main>
   </body>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var accountNumber = localStorage.getItem("accountNumber");
-      fetch("http://10.0.170.132:8088/v1/front-service/investor/send-info", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          accountNumber: accountNumber,
-        }),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Có lỗi khi gửi yêu cầu: " + response.status);
-          }
-          return response.json();
-        })
-        .then((json) => {
-          document.getElementById("accountNumber").innerText =
-            json.accountNumber;
-          document.getElementById("fullName").innerText = json.fullName;
-          document.getElementById("identity").innerText = json.identity;
-          document.getElementById("identityIssuanceDate").innerText =
-            json.identityIssuanceDate;
-          document.getElementById("identityIssuancePlace").innerText =
-            json.identityIssuancePlace;
-        })
-        .catch((error) => {
-          console.error("Có lỗi xảy ra:", error);
-        });
-    });
-  </script>
+  <script src="./assest/info.js"></script>
 </html>

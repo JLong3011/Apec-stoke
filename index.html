@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/assest/style.css" rel="stylesheet" />
   </head>
   <body class="bg-[#020210]">
     <header>
-      <div
+      <a href="/"
         class="flex gap-5 px-8 py-6 font-medium text-yellow-500 uppercase bg-gray-900 max-md:flex-wrap max-md:px-5"
       >
         <img
@@ -17,7 +18,7 @@
         <p class="flex-auto my-auto max-md:max-w-full">
           Đăng ký giao dịch trái phiếu doanh nghiệp riêng lẻ
         </p>
-      </div>
+      </a>
     </header>
     <main>
       <div class="flex justify-center">
@@ -87,7 +88,7 @@
             />
           </form>
           <button
-            type="submit"
+            disabled
             id="signInButton"
             class="justify-center items-center px-16 py-2.5 mt-12 font-medium text-center bg-yellow-500 rounded text-zinc-800 max-md:px-5 max-md:mt-10"
           >
@@ -98,47 +99,6 @@
     </main>
   </body>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    document
-      .getElementById("signInButton")
-      .addEventListener("click", function () {
-        var inputValue = document.getElementById("accountInput").value;
-        console.log("Giá trị từ input là: " + inputValue);
-
-        const url =
-          "http://10.0.170.132:8088/v1/front-service/investor/send-info";
-
-        fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            accountNumber: inputValue,
-          }),
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Có lỗi khi gửi yêu cầu: " + response.status);
-            }
-            return response.json();
-          })
-          .then((data) => {
-            console.log(data);
-            localStorage.setItem("accountNumber", inputValue);
-            window.location.href = "filled.html";
-          })
-          .catch((error) => {
-            console.error("Có lỗi xảy ra:", error);
-          });
-      });
-
-    var input = document.getElementById("accountInput");
-    input.addEventListener("keypress", function (event) {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        document.getElementById("signInButton").click();
-      }
-    });
-  </script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="./assest/enter_acc.js"></script>
 </html>
