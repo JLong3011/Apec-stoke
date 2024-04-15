@@ -11,24 +11,23 @@ document.getElementById("signInButton").addEventListener("click", function () {
   const apiUrl = "http://10.0.170.132:8088/v1/front-service/investor/get-info?accountNumber=" + inputValue;
 
   fetch(apiUrl, requestOptions)
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((res) => {
-        // console.log(res)
-        // if(res.status = 500){
-        //   swal({
-        //     title: "Sai tài khoản, vui lòng nhập lại",
-        //     type: "error",
-        //     confirmButtonClass: "btn-danger",
-        //   });
-        //   localStorage.clear();
-        //   return;
-        // }else{
-        //   localStorage.setItem("accountNumber", inputValue);
-        // }
-        localStorage.setItem("accountNumber", inputValue);
-      }).then(() =>
-        window.location.href = "filled.html")
-      .catch((error) => console.error(error));
+        console.log(res.statusCode)
+        if(res.statusCode !== 200){
+          swal({
+            title: "Sai tài khoản, vui lòng nhập lại",
+            type: "error",
+            confirmButtonClass: "btn-danger",
+          });
+          localStorage.clear();
+          return;
+        }else{
+          localStorage.setItem("accountNumber", inputValue);
+          window.location.href = "filled.html";
+        }
+        // localStorage.setItem("accountNumber", inputValue);
+      }).catch((error) => console.error(error));
 });
 
 var input = document.getElementById("accountInput");
